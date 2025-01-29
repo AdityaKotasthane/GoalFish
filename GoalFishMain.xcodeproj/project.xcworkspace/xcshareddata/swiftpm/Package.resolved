@@ -1,0 +1,24 @@
+{
+  "originHash" : "1ac95c6a54d1f506c243a629030bb650613effc245194c969885d6b57484eb5f",
+  "pins" : [
+    {
+      "identity" : "circularslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/terlan98/CircularSlider",
+      "state" : {
+        "revision" : "001b76303fce5cd21764fae334720ff69a91392f",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "fe4c6fe3a0aa66cdeb51d549623c82ca9704b9a5",
+        "version" : "4.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}
