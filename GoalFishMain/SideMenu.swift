@@ -20,7 +20,7 @@ struct SideMenu: View {
             // Side Menu Content
             VStack(alignment: .leading, spacing: 20) {
                 Text("Menu")
-                    .font(.custom("Supercell-Magic", size: 24))
+                    .font(.custom("Supercell-Magic", size: 20))
                     .bold()
                     .foregroundColor(.white)
                     .padding(.bottom, 20)
@@ -45,7 +45,7 @@ struct SideMenu: View {
             }
             .padding(.top, 50)
             .padding(.horizontal, 20)
-            .frame(maxWidth: 280, alignment: .leading)
+            .frame(maxWidth: 320, alignment: .leading)
             .background(Color.black) // Side menu itself stays black
             .cornerRadius(20)
             .shadow(color: Color.black.opacity(0.5), radius: 10, x: 5, y: 5)

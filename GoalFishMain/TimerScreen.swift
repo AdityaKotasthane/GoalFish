@@ -61,13 +61,13 @@ struct TimerScreen: View {
                     if let timestamp = backgroundTimestamp {
                         Text("App went to background at: \(timestamp)")
                             .font(.custom("Supercell-Magic", size: 15))
-                            .foregroundColor(.red)
+                            .foregroundColor(.blue)
                             .padding(.top, 10)
                     }
 
                     Text("Background Count: \(backgroundCount)")
                         .font(.custom("Supercell-Magic", size: 15))
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.red)
                         .padding(.top, 5)
 
                     Spacer()
@@ -78,10 +78,10 @@ struct TimerScreen: View {
                             .frame(width: 300, height: 300)
                             .offset(y: 20)
 
-                        WaterAnimationView(waveLevel: waveLevel)
-                            .frame(width: 300, height: 300)
-                            .offset(y: 20)
-                            .zIndex(4)
+//                        WaterAnimationView(waveLevel: waveLevel)
+//                            .frame(width: 300, height: 300)
+//                            .offset(y: 20)
+//                            .zIndex(4)
 
                         if isDeadFishVisible {
                             Image("dead_fish")

@@ -15,11 +15,10 @@ struct ContentView: View {
     @State private var isSideMenuOpen = false
     @AppStorage("userPoints") private var userPoints = 0 // Track user points
     @AppStorage("taskCompletionStreak") private var taskCompletionStreak = 0
-    @AppStorage("unlockedFishCount") private var unlockedFishCount = 2 // Start with 2 unlocked fishes
     @AppStorage("selectedBackground") private var selectedBackground: String = "background3" // Default background
     
     let tagOptions = ["Study", "Work", "Meditate", "Exercise"]
-    let tagColors: [Color] = [.red, .green, .blue, .orange]
+    let tagColors: [Color] = [.green, .blue, .orange, .purple]
     let allFishes = [
         "Fishy": "fish1",
         "Nemo": "fish2",
@@ -36,27 +35,8 @@ struct ContentView: View {
     @State private var navigateToTimerScreen = false // State-driven navigation
     @StateObject private var taskCompletionManager = TaskCompletionManager() // Initialize the task completion manager
     
-    var unlockedFishes: [String: String] {
-        Array(allFishes.prefix(unlockedFishCount))
-            .reduce(into: [String: String]()) { $0[$1.key] = $1.value }
-    }
-    func handleTaskCompletion(isTaskSuccessful: Bool) {
-        if isTaskSuccessful {
-            taskCompletionStreak += 1
-            // Unlock a new fish every 3 completed tasks (if more fishes are available)
-            if taskCompletionStreak % 2 == 0, unlockedFishCount < allFishes.count {
-                unlockedFishCount += 1
-            }
-        } else {
-            // If task failed, re-lock the last unlocked fish (but never go below 2 unlocked fishes)
-            if unlockedFishCount > 2 {
-                unlockedFishCount -= 1
-            }
-            taskCompletionStreak = max(0, taskCompletionStreak - 1) // Reduce streak but not below 0
-        }
-    }
-
-
+    
+    
     
     func tagColor(for selectedTag: String) -> Color {
         if let index = tagOptions.firstIndex(of: selectedTag) {
@@ -127,7 +107,7 @@ struct ContentView: View {
                     }
                 )
             }
-
+            
             .navigationBarItems(
                 leading: Button(action: {
                     isSideMenuOpen.toggle()
@@ -157,12 +137,10 @@ struct ContentView: View {
                     selectedFish: $selectedFish,
                     isShowing: $isShowingFishSelection,
                     allFishes: allFishes,
-                    unlockedFishes: unlockedFishes,
-                    unavailableFishes: taskCompletionManager.unavailableFishes,
                     taskCompletionStreak: taskCompletionManager.fishUnlockProgress
                 )
             }
-
+            
             .sheet(isPresented: $isSideMenuOpen) {
                 SideMenu(taskCompletionManager: taskCompletionManager, isMenuOpen: $isSideMenuOpen)
             }
@@ -183,7 +161,7 @@ struct ContentView: View {
         navigateToTimerScreen = true // Use state-driven navigation to show TimerScreen
     }
     
-   
+    
     // MARK: - UI Components
     private var headerSection: some View {
         HStack {
@@ -217,13 +195,16 @@ struct ContentView: View {
     private var timerAndFishPotWithWater: some View {
         ZStack {
             ZStack {
-                GlassBowlView(waveLevel: 2.0)
+                // Glass bowl updates dynamically
+                GlassBowlView(waveLevel: selectedValue / 120) // 1 min = 1%, 120 min = 100%
                 
-                WaterAnimationView(waveLevel: 0.1 + (selectedValue / 150))
+                // Water gradually fills the bowl
+                WaterAnimationView(waveLevel: max(0.01, selectedValue / 120)) // Ensure water appears at min value
                     .frame(width: 300, height: 300)
                     .offset(y: 20)
                     .zIndex(3)
                 
+                // Floating Fish Animation
                 if let selectedFish = selectedFish {
                     Image(selectedFish)
                         .resizable()
@@ -240,6 +221,7 @@ struct ContentView: View {
                 }
             }
             
+            // Circular timer on top
             CircularSlider(currentValue: $selectedValue, maxValue: 120)
                 .frame(width: 350, height: 350)
                 .zIndex(1)
@@ -251,6 +233,7 @@ struct ContentView: View {
                     .zIndex(2)
                     .scaleEffect(0.4)
                 
+                // Timer text display
                 Text("\(Int(selectedValue)) min")
                     .font(.custom("Supercell-Magic", size: 25))
                     .fontWeight(.bold)
@@ -263,6 +246,7 @@ struct ContentView: View {
             }
             .offset(y: -300)
             
+            // Display the selected tag at the top
             if let selectedTag = selectedTag {
                 Text(selectedTag)
                     .font(.custom("Supercell-Magic", size: 25))
@@ -272,6 +256,7 @@ struct ContentView: View {
             }
         }
     }
+    
     
     private var sliderAndStartButton: some View {
         VStack {
@@ -297,93 +282,160 @@ struct ContentView: View {
     
     private var tagListPopover: some View {
         ZStack {
-            Color.black.opacity(0.5)
+            // **Blurred Background for Depth**
+            Color.black.opacity(0.1)
                 .edgesIgnoringSafeArea(.all)
+                .background(BlurView(style: .systemUltraThinMaterialDark)) // Frosted Glass Effect
                 .onTapGesture {
-                    isShowingTagList = false
-                }
-            
-            VStack(spacing: 15) {
-                Text("Select a Tag")
-                    .font(.custom("Supercell-Magic", size: 22))
-                    .foregroundColor(.black)
-                    .padding()
-                
-                ForEach(tagOptions.indices, id: \.self) { index in
-                    Button(action: {
-                        selectedTag = tagOptions[index]
+                    withAnimation(.easeOut(duration: 0.3)) {
                         isShowingTagList = false
-                    }) {
-                        Text(tagOptions[index])
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(tagColors[index])
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                     }
                 }
+            
+            // **Tag Selection Box**
+            VStack(spacing: 15) {
+                Text("📌 Select a Tag")
+                    .font(.custom("Supercell-Magic", size: 22))
+                    .foregroundColor(.white)
+                    .padding(.top, 10)
+                
+                // **Tags List**
+                VStack(spacing: 12) {
+                    ForEach(tagOptions.indices, id: \.self) { index in
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                selectedTag = tagOptions[index]
+                                isShowingTagList = false
+                            }
+                        }) {
+                            Text(tagOptions[index])
+                                .font(.custom("Supercell-Magic", size: 18))
+                                .padding(.vertical, 12)
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [tagColors[index].opacity(0.8), tagColors[index]]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .foregroundColor(.white)
+                                .cornerRadius(12)
+                                .shadow(color: tagColors[index].opacity(0.5), radius: 5, x: 0, y: 3)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
+                                )
+                        }
+                        .buttonStyle(PlainButtonStyle()) // Removes default SwiftUI button tap effect
+                    }
+                }
+                .padding(.horizontal, 15)
+                
+                // **Close Button**
+                Button(action: {
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        isShowingTagList = false
+                    }
+                }) {
+                    Text("❌ Close")
+                        .font(.custom("Supercell-Magic", size: 18))
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red.opacity(0.8))
+                        .cornerRadius(12)
+                        .shadow(color: Color.white.opacity(0.5), radius: 5, x: 0, y: 3)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 10)
             }
-            .frame(width: 300)
-            .background(Color.white)
+            .padding()
+            .frame(width: 320)
+            .background(BlurView(style: .systemUltraThinMaterial))
             .cornerRadius(20)
             .shadow(radius: 10)
-            .padding()
         }
     }
+    
+    // MARK: - **Blur Effect for Glassmorphism**
+    struct BlurView: UIViewRepresentable {
+        var style: UIBlurEffect.Style
+        
+        func makeUIView(context: Context) -> UIVisualEffectView {
+            let view = UIVisualEffectView(effect: UIBlurEffect(style: style))
+            return view
+        }
+        
+        func updateUIView(_ uiView: UIVisualEffectView, context: Context) {}
+    }
 }
-
 
 
 
 struct GlassBowlView: View {
-    var waveLevel: Double // Proportional wave height based on time selection
-
-    var body: some View {
-        ZStack {
-            // Outer glass-like circle
-            Circle()
-                .strokeBorder(LinearGradient(
-                    gradient: Gradient(colors: [.white.opacity(0.8), .blue.opacity(0.3)]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ), lineWidth: 10)
-                .shadow(color: Color.blue.opacity(0.2), radius: 15, x: 0, y: 10)
-
-            // Inner reflective circle for a glassy effect
-            Circle()
-                .fill(LinearGradient(
-                    gradient: Gradient(colors: [.blue.opacity(0.1), .clear]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ))
-                .padding(5)
-
-            
-        }
-    }
-}
-
-struct WaterAnimationView: View {
-    @State private var waveOffset = Angle(degrees: 0)
-    var waveLevel: Double // Current water level in the bowl
+    var waveLevel: Double // Water level (0.0 = empty, 1.0 = full)
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Animated water waves
-                WaveView(waveHeight: 10, waveOffset: waveOffset)
-                    .fill(LinearGradient(
-                        gradient: Gradient(colors: [.blue, .cyan.opacity(0.8)]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    ))
+                // Outer Glassy Circle
+                Circle()
+                    .strokeBorder(
+                        LinearGradient(
+                            gradient: Gradient(colors: [.white.opacity(0.8), .blue.opacity(0.3)]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        ),
+                        lineWidth: geometry.size.width * 0.05
+                    )
+                    .shadow(color: Color.blue.opacity(0.2), radius: 10, x: 0, y: 5)
+
+                // Inner Glass Effect
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [.blue.opacity(0.1), .clear]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                    .padding(geometry.size.width * 0.03)
+
+                // Water inside the bowl (Updates with timer selection)
+                WaterAnimationView(waveLevel: waveLevel)
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                    .offset(y: geometry.size.height * (1.0 - waveLevel))
+                    .clipShape(Circle())
+            }
+        }
+        .aspectRatio(1, contentMode: .fit)
+    }
+}
+
+
+struct WaterAnimationView: View {
+    @State private var waveOffset = Angle(degrees: 0)
+    var waveLevel: Double // Water level (0.0 = empty, 1.0 = full)
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                // Ensure water appears even at 1 min
+                WaveView(waveHeight: max(5, waveLevel * 20), waveOffset: waveOffset) // Dynamic wave height
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [.blue, .cyan.opacity(0.8)]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .offset(y: geometry.size.height * (1.0 - max(0.02, waveLevel))) // Ensures minimum visibility
                     .clipShape(Circle())
             }
             .onAppear {
-                // Infinite wave animation
-                withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: false)) {
+                // Smooth wave motion
+                withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: true)) {
                     waveOffset = Angle(degrees: 360)
                 }
             }

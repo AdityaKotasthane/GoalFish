@@ -100,13 +100,18 @@ public struct CircularSlider: View {
         let vector = CGVector(dx: location.x - center.x, dy: location.y - center.y)
         let angleInRadians = atan2(vector.dy, vector.dx) + .pi / 2.0
 
+        // Normalize angle to be within 0 to 2π
         let fixedAngle = angleInRadians < 0 ? angleInRadians + 2 * .pi : angleInRadians
         let newValue = angleToValue(angleInRadians: fixedAngle)
 
-        // Update current value and angle
-        currentValue = max(min(newValue, maxValue), minValue)
-        angle = radiansToDegrees(fixedAngle)
+        // Ensure smooth transition with easing effect
+        withAnimation(.easeOut(duration: 0.1)) {
+            currentValue = min(max(newValue, minValue), maxValue)
+            angle = radiansToDegrees(fixedAngle)
+        }
     }
+
+   
 
     private func angleToValue(angleInRadians: Double) -> Double {
         let angleAsPercentage = angleInRadians / (2.0 * .pi)
