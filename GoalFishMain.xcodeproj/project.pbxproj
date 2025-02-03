@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08575C5C2CABE9FC0010DF61 /* ShortBaby-Mg2w.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08575C5B2CABE9FC0010DF61 /* ShortBaby-Mg2w.ttf */; };
 		08BDF1C72CA9C35E00D5CD25 /* TaskCompletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDF1C62CA9C35E00D5CD25 /* TaskCompletionManager.swift */; };
 		0F2CE9CF2B8EED070095DF52 /* TimerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2CE9CE2B8EED070095DF52 /* TimerScreen.swift */; };
 		0F2CE9D32B8F4D4D0095DF52 /* ResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2CE9D22B8F4D4D0095DF52 /* ResultScreen.swift */; };
@@ -40,6 +39,8 @@
 		96399DF02CCB2AD700F4CDC8 /* fishes.json in Resources */ = {isa = PBXBuildFile; fileRef = 96399DEF2CCB2AD700F4CDC8 /* fishes.json */; };
 		96CEA3002CC59FC100241977 /* CircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CEA2FF2CC59FC100241977 /* CircularSlider.swift */; };
 		96CEA3022CC5C36500241977 /* AnimationMain.json in Resources */ = {isa = PBXBuildFile; fileRef = 96CEA3012CC5C36500241977 /* AnimationMain.json */; };
+		96FD68922D5011760084057E /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD68912D5011760084057E /* UserModels.swift */; };
+		96FD68942D5011C50084057E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD68932D5011C50084057E /* HomeViewModel.swift */; };
 		96FE98742CC56CC60060E28E /* splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 96FE98732CC55CB50060E28E /* splashscreen.json */; };
 		96FE98772CC590EC0060E28E /* CircularSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 96FE98762CC590EC0060E28E /* CircularSlider */; };
 		DC3E0FD42BB2280400411550 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC110962B90541200B7C792 /* StoreView.swift */; };
@@ -66,7 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08575C5B2CABE9FC0010DF61 /* ShortBaby-Mg2w.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShortBaby-Mg2w.ttf"; sourceTree = "<group>"; };
 		08BDF1C62CA9C35E00D5CD25 /* TaskCompletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletionManager.swift; sourceTree = "<group>"; };
 		0F2CE9CE2B8EED070095DF52 /* TimerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScreen.swift; sourceTree = "<group>"; };
 		0F2CE9D22B8F4D4D0095DF52 /* ResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreen.swift; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		96CEA2FF2CC59FC100241977 /* CircularSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSlider.swift; sourceTree = "<group>"; };
 		96CEA3012CC5C36500241977 /* AnimationMain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimationMain.json; sourceTree = "<group>"; };
 		96CEA3032CC5D66C00241977 /* ShellCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCounterView.swift; sourceTree = "<group>"; };
+		96FD68912D5011760084057E /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
+		96FD68932D5011C50084057E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		96FE98732CC55CB50060E28E /* splashscreen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splashscreen.json; sourceTree = "<group>"; };
 		DCC251B22BC911290096006A /*  RadialGaugeChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " RadialGaugeChart.swift"; sourceTree = "<group>"; };
 		DCC6F7762BC41E03008D1BD2 /* AnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedView.swift; sourceTree = "<group>"; };
@@ -160,39 +162,11 @@
 		1FC118412B8EE2B7005C69AF /* GoalFishMain */ = {
 			isa = PBXGroup;
 			children = (
-				96CEA3032CC5D66C00241977 /* ShellCounterView.swift */,
-				1FC1192A2B8F08D7005C69AF /* SplashScreen.swift */,
-				DCC6F7762BC41E03008D1BD2 /* AnimatedView.swift */,
-				96399DEF2CCB2AD700F4CDC8 /* fishes.json */,
-				96399DED2CCB29DD00F4CDC8 /* fisherman.json */,
+				96FD68902D4FFB250084057E /* NetworkManager */,
+				96FD687D2D4FDCD90084057E /* Utility */,
+				96FD687C2D4FDCD00084057E /* Common */,
+				96FD687B2D4FDC980084057E /* Features */,
 				1FC118422B8EE2B7005C69AF /* GoalFishApp.swift */,
-				1FC118442B8EE2B7005C69AF /* ContentView.swift */,
-				0F2CE9CE2B8EED070095DF52 /* TimerScreen.swift */,
-				1FC1108A2B90439C00B7C792 /* SideMenu.swift */,
-				0F2CE9D22B8F4D4D0095DF52 /* ResultScreen.swift */,
-				96399DAC2CC80DE300F4CDC8 /* Dokdo.ttf */,
-				96399DEB2CC81E6D00F4CDC8 /* Supercell-Magic.ttf */,
-				96399DB12CC8156100F4CDC8 /* Magic.ttf */,
-				96399DAA2CC806CD00F4CDC8 /* LottieView.swift */,
-				96399DA82CC8051400F4CDC8 /* StartButton.json */,
-				1FC110922B9053C900B7C792 /* FriendsView.swift */,
-				96FE98732CC55CB50060E28E /* splashscreen.json */,
-				1FC110982B90542A00B7C792 /* TagsView.swift */,
-				1FC1109A2B90543800B7C792 /* AchievementsView.swift */,
-				1FC1109C2B90544600B7C792 /* NewsView.swift */,
-				1FC1109E2B90545400B7C792 /* SettingsView.swift */,
-				1FC110942B9053FB00B7C792 /* ProSubscriptionView.swift */,
-				08BDF1C62CA9C35E00D5CD25 /* TaskCompletionManager.swift */,
-				DCC251B22BC911290096006A /*  RadialGaugeChart.swift */,
-				0F2CE9D42B9038F60095DF52 /* ProgressBar.swift */,
-				0FFC76612B970325008197FB /* BarChart.swift */,
-				1FC110962B90541200B7C792 /* StoreView.swift */,
-				96CEA2FF2CC59FC100241977 /* CircularSlider.swift */,
-				0F2CE9DA2B919BF10095DF52 /* CircularProgressBar.swift */,
-				1FC119282B8EFE97005C69AF /* FishSelectionView.swift */,
-				1FC118462B8EE2B8005C69AF /* Assets.xcassets */,
-				96CEA3012CC5C36500241977 /* AnimationMain.json */,
-				08575C5B2CABE9FC0010DF61 /* ShortBaby-Mg2w.ttf */,
 				1FC118482B8EE2B8005C69AF /* Preview Content */,
 			);
 			path = GoalFishMain;
@@ -221,6 +195,195 @@
 				1FC1185F2B8EE2B8005C69AF /* GoalFishUITestsLaunchTests.swift */,
 			);
 			path = GoalFishUITests;
+			sourceTree = "<group>";
+		};
+		96FD687B2D4FDC980084057E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				96FD688D2D4FE0960084057E /* ProSubscription */,
+				96FD688C2D4FE08F0084057E /* News */,
+				96FD688B2D4FE06C0084057E /* Achievements */,
+				96FD688A2D4FE05F0084057E /* Friends */,
+				96FD68892D4FDF250084057E /* Tags */,
+				96FD68882D4FDF1D0084057E /* Settings */,
+				96FD68832D4FDD890084057E /* ResultScreen */,
+				96FD68822D4FDD7F0084057E /* TimerScreen */,
+				96FD68812D4FDD580084057E /* SplashScreen */,
+				96FD68802D4FDD400084057E /* HomeScreen */,
+				96FD68872D4FDED30084057E /* Store */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		96FD687C2D4FDCD00084057E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				96FD68862D4FDE1B0084057E /* Models */,
+				DCC6F7762BC41E03008D1BD2 /* AnimatedView.swift */,
+				96399DAA2CC806CD00F4CDC8 /* LottieView.swift */,
+				08BDF1C62CA9C35E00D5CD25 /* TaskCompletionManager.swift */,
+				DCC251B22BC911290096006A /*  RadialGaugeChart.swift */,
+				0F2CE9D42B9038F60095DF52 /* ProgressBar.swift */,
+				0FFC76612B970325008197FB /* BarChart.swift */,
+				96CEA2FF2CC59FC100241977 /* CircularSlider.swift */,
+				0F2CE9DA2B919BF10095DF52 /* CircularProgressBar.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		96FD687D2D4FDCD90084057E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				96FD687F2D4FDCF60084057E /* Fonts */,
+				96FD687E2D4FDCEE0084057E /* Animations */,
+				1FC118462B8EE2B8005C69AF /* Assets.xcassets */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		96FD687E2D4FDCEE0084057E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				96399DEF2CCB2AD700F4CDC8 /* fishes.json */,
+				96399DED2CCB29DD00F4CDC8 /* fisherman.json */,
+				96399DA82CC8051400F4CDC8 /* StartButton.json */,
+				96FE98732CC55CB50060E28E /* splashscreen.json */,
+				96CEA3012CC5C36500241977 /* AnimationMain.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		96FD687F2D4FDCF60084057E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				96399DAC2CC80DE300F4CDC8 /* Dokdo.ttf */,
+				96399DEB2CC81E6D00F4CDC8 /* Supercell-Magic.ttf */,
+				96399DB12CC8156100F4CDC8 /* Magic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		96FD68802D4FDD400084057E /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				96FD68852D4FDE050084057E /* ViewModel */,
+				96FD68842D4FDDFF0084057E /* View */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		96FD68812D4FDD580084057E /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1FC1192A2B8F08D7005C69AF /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		96FD68822D4FDD7F0084057E /* TimerScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F2CE9CE2B8EED070095DF52 /* TimerScreen.swift */,
+			);
+			path = TimerScreen;
+			sourceTree = "<group>";
+		};
+		96FD68832D4FDD890084057E /* ResultScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F2CE9D22B8F4D4D0095DF52 /* ResultScreen.swift */,
+			);
+			path = ResultScreen;
+			sourceTree = "<group>";
+		};
+		96FD68842D4FDDFF0084057E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FC118442B8EE2B7005C69AF /* ContentView.swift */,
+				1FC1108A2B90439C00B7C792 /* SideMenu.swift */,
+				96CEA3032CC5D66C00241977 /* ShellCounterView.swift */,
+				1FC119282B8EFE97005C69AF /* FishSelectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96FD68852D4FDE050084057E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96FD68932D5011C50084057E /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96FD68862D4FDE1B0084057E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96FD68912D5011760084057E /* UserModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96FD68872D4FDED30084057E /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				1FC110962B90541200B7C792 /* StoreView.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		96FD68882D4FDF1D0084057E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1FC1109E2B90545400B7C792 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		96FD68892D4FDF250084057E /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				1FC110982B90542A00B7C792 /* TagsView.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		96FD688A2D4FE05F0084057E /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				1FC110922B9053C900B7C792 /* FriendsView.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		96FD688B2D4FE06C0084057E /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				1FC1109A2B90543800B7C792 /* AchievementsView.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
+		96FD688C2D4FE08F0084057E /* News */ = {
+			isa = PBXGroup;
+			children = (
+				1FC1109C2B90544600B7C792 /* NewsView.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		96FD688D2D4FE0960084057E /* ProSubscription */ = {
+			isa = PBXGroup;
+			children = (
+				1FC110942B9053FB00B7C792 /* ProSubscriptionView.swift */,
+			);
+			path = ProSubscription;
+			sourceTree = "<group>";
+		};
+		96FD68902D4FFB250084057E /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +499,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FE98742CC56CC60060E28E /* splashscreen.json in Resources */,
-				08575C5C2CABE9FC0010DF61 /* ShortBaby-Mg2w.ttf in Resources */,
 				96399DEC2CC81E6D00F4CDC8 /* Supercell-Magic.ttf in Resources */,
 				1FC1184A2B8EE2B8005C69AF /* Preview Assets.xcassets in Resources */,
 				96399DAD2CC80DE300F4CDC8 /* Dokdo.ttf in Resources */,
@@ -374,6 +536,7 @@
 				1FC1192B2B8F08D7005C69AF /* SplashScreen.swift in Sources */,
 				1FC1109B2B90543800B7C792 /* AchievementsView.swift in Sources */,
 				1FC1109D2B90544600B7C792 /* NewsView.swift in Sources */,
+				96FD68942D5011C50084057E /* HomeViewModel.swift in Sources */,
 				1FC118452B8EE2B7005C69AF /* ContentView.swift in Sources */,
 				1FC119292B8EFE97005C69AF /* FishSelectionView.swift in Sources */,
 				96CEA3002CC59FC100241977 /* CircularSlider.swift in Sources */,
@@ -390,6 +553,7 @@
 				DCC251B32BC911290096006A /*  RadialGaugeChart.swift in Sources */,
 				1FC1108B2B90439C00B7C792 /* SideMenu.swift in Sources */,
 				0F2CE9DB2B919BF10095DF52 /* CircularProgressBar.swift in Sources */,
+				96FD68922D5011760084057E /* UserModels.swift in Sources */,
 				0F2CE9D52B9038F60095DF52 /* ProgressBar.swift in Sources */,
 				1FC110932B9053C900B7C792 /* FriendsView.swift in Sources */,
 				1FC110952B9053FB00B7C792 /* ProSubscriptionView.swift in Sources */,
@@ -557,7 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoalFishMain/Preview Content\"";
-				DEVELOPMENT_TEAM = 75L65663QN;
+				DEVELOPMENT_TEAM = 2Z8B6ZHC8V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GoalFish-Info.plist";
@@ -572,7 +736,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Aditya077.GoalFish;
+				PRODUCT_BUNDLE_IDENTIFIER = ArjunGoalFish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -590,7 +754,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoalFishMain/Preview Content\"";
-				DEVELOPMENT_TEAM = 75L65663QN;
+				DEVELOPMENT_TEAM = 2Z8B6ZHC8V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GoalFish-Info.plist";
@@ -605,7 +769,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Aditya077.GoalFish;
+				PRODUCT_BUNDLE_IDENTIFIER = ArjunGoalFish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
