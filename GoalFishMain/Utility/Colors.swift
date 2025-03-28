@@ -1,10 +1,11 @@
 //
-//  for.swift
+//  Colors.swift
 //  GoalFishMain
 //
 //  Created by Arjun Pratap Choudhary on 08/02/25.
 //
-
+import SwiftUI
+import Foundation
 
 // Color Extension for Hex Support
 extension Color {
@@ -36,14 +37,29 @@ extension Color {
 
 // Colors struct for centralized management
 struct Colors {
-    static let color_ffffff = Color(hex: "#ffffff")  // White
-    static let color_000000 = Color(hex: "#000000")  // Black
-    static let color_282828 = Color(hex: "#282828")  // Dark Gray
-    static let theme_bg_color = Color(hex: "#101010") // Theme Background
-    // Add more colors as needed
+    // Brand Colors
+    static let primary = Color(hex: "#4A90E2")
+    static let secondary = Color(hex: "#50E3C2")
+    
+    // Background Colors
+    static let background = Color(hex: "#F5F8FA")
+    static let cardBackground = Color(hex: "#FFFFFF")
+    
+    // Text Colors
+    static let textPrimary = Color(hex: "#2C3E50")
+    static let textSecondary = Color(hex: "#7F8C8D")
+    
+    // Fish Theme Colors
+    static let waterBlue = Color(hex: "#00FFFF")
+    static let coralPink = Color(hex: "#FF7F7F")
+    static let seaweedGreen = Color(hex: "#4CAF50")
+    
+    // Status Colors
+    static let success = Color(hex: "#2ECC71")
+    static let warning = Color(hex: "#F1C40F")
+    static let error = Color(hex: "#E74C3C")
+    
+    // Shell Counter Colors
+    static let shellGold = Color(hex: "#FFD700")
 }
 
-// Usage in Views
-Text("Hello World")
-    .foregroundColor(Colors.color_ffffff)
-    .background(Colors.theme_bg_color)

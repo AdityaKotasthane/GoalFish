@@ -79,10 +79,13 @@ class SoundManager: ObservableObject {
         guard isSoundEnabled else { return }
         
         // Randomize between sounds for variety
-        let soundName = Bool.random() ? "waterDrop" : "ripple"
+        let soundName: Sound = Bool.random() ? .waterDrop : .buttonTap // Use Sound enum
         
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3"),
-              let player = audioPlayers[url] else { return }
+        // Prepare the sound if not already prepared
+        prepareSound(soundName)
+        
+        // Access the player using the Sound enum
+        guard let player = audioPlayers[soundName] else { return }
         
         // Randomize volume and pitch slightly for natural feel
         player.volume = Float.random(in: 0.1...0.3) // Keep volume subtle
@@ -90,7 +93,7 @@ class SoundManager: ObservableObject {
         
         // Create new player instance for overlapping sounds
         do {
-            let newPlayer = try AVAudioPlayer(contentsOf: url)
+            let newPlayer = try AVAudioPlayer(contentsOf: Bundle.main.url(forResource: soundName.rawValue, withExtension: "mp3")!)
             newPlayer.volume = player.volume
             newPlayer.rate = player.rate
             newPlayer.play()

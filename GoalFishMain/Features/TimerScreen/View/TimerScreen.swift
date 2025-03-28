@@ -1,269 +1,250 @@
 import SwiftUI
-import Lottie
 
 struct TimerScreen: View {
-    let timerValue: Int
-    @State private var timeRemaining: Int
-    @State private var timer: Timer?
+    @StateObject private var viewModel: TimerViewModel
     @Binding var selectedFish: String?
     @Binding var selectedTag: String?
     @Binding var userPoints: Int
-    @ObservedObject var taskCompletionManager: TaskCompletionManager
-    let onTaskComplete: () -> Void // Callback for task completion
-    let onTaskFail: () -> Void // Callback for task failure
-    @State private var showingGiveUpAlert = false
-    @State private var hasGivenUp = false
-    @State private var progress: CGFloat = 1.0
     @Environment(\.scenePhase) private var scenePhase
-    @State private var showingResultScreen = false
-    @State private var fishAnimationOffset: CGFloat = 0
-    @State private var fishSizeMultiplier: CGFloat = 1.0
-    @State private var isDeadFishVisible = false
-    @State private var deadFishOffset: CGSize = .zero
-    @AppStorage("selectedBackground") private var selectedBackground: String = "background1" // Sync background selection
-    @State private var waveLevel: Double = 1.0
-    @State private var backgroundTimestamp: String? = nil
-    @State private var timeInBackground: String? = nil
-    @State private var backgroundCount: Int = 0
-
-    init(timerValue: Int, selectedFish: Binding<String?>, selectedTag: Binding<String?>, userPoints: Binding<Int>, taskCompletionManager: TaskCompletionManager, onTaskComplete: @escaping () -> Void, onTaskFail: @escaping () -> Void) {
-        self.timerValue = timerValue
-        _timeRemaining = State(initialValue: timerValue * 60)
+    @AppStorage("soundEnabled") private var soundEnabled: Bool = true
+    @AppStorage("selectedBackground") private var selectedBackground: String = "background5"
+    private let taskCompletionManager: TaskCompletionManager
+    @State private var backgroundTask: UIBackgroundTaskIdentifier?  // ✅ Prevent immediate suspension
+    init(timerValue: Int,
+         selectedFish: Binding<String?>,
+         selectedTag: Binding<String?>,
+         userPoints: Binding<Int>,
+         taskCompletionManager: TaskCompletionManager,
+         onTaskComplete: @escaping () -> Void,
+         onTaskFail: @escaping () -> Void) {
+        self.taskCompletionManager = taskCompletionManager
         _selectedFish = selectedFish
         _selectedTag = selectedTag
         _userPoints = userPoints
-        self.taskCompletionManager = taskCompletionManager
-        self.onTaskComplete = onTaskComplete
-        self.onTaskFail = onTaskFail
+        _viewModel = StateObject(wrappedValue: TimerViewModel(
+            timerValue: timerValue,
+            selectedFish: selectedFish.wrappedValue,
+            selectedTag: selectedTag.wrappedValue,
+            taskCompletionManager: taskCompletionManager,
+            onTaskComplete: onTaskComplete,
+            onTaskFail: onTaskFail
+        ))
     }
-
+    
+    
+    @State private var ripples: [RipplePoint] = []
+    
+    struct RipplePoint: Identifiable {
+        let id = UUID()
+        let location: CGPoint
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                // Background Image (Using @AppStorage)
+                // Background image
                 Image(selectedBackground)
                     .resizable()
-                    .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-
-                VStack {
-                    // Timer Display
-                    Text(formatTime(timeRemaining))
-                        .font(.custom("Supercell-Magic", size: 25))
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
-                        .background(Color.black.opacity(0.7))
-                        .cornerRadius(10)
-                        .padding(.top, 50)
-
-                    if let timestamp = backgroundTimestamp {
-                        Text("App went to background at: \(timestamp)")
-                            .font(.custom("Supercell-Magic", size: 15))
-                            .foregroundColor(.blue)
-                            .padding(.top, 10)
-                    }
-
-                    Text("Background Count: \(backgroundCount)")
-                        .font(.custom("Supercell-Magic", size: 15))
-                        .foregroundColor(.red)
-                        .padding(.top, 5)
-
-                    Spacer()
-
-                    // Fish Bowl and Progress
+                    .opacity(1)
+                
+                // Ripple Effects Layer
+                ForEach(ripples) { point in
+                    RippleEffect(center: point.location)
+                }
+                
+                VStack(spacing: 0) {
+                    // Top Section with Timer
                     ZStack {
-                        GlassBowlView(waveLevel: 1.0)
-                            .frame(width: 300, height: 300)
-                            .offset(y: 20)
-
-//                        WaterAnimationView(waveLevel: waveLevel)
-//                            .frame(width: 300, height: 300)
-//                            .offset(y: 20)
-//                            .zIndex(4)
-
-                        if isDeadFishVisible {
-                            Image("dead_fish")
-                                .resizable()
-                                .frame(width: 100 * fishSizeMultiplier, height: 100 * fishSizeMultiplier)
-                                .clipShape(Circle())
-                                .offset(deadFishOffset)
-                                .zIndex(3)
-                                .onAppear {
-                                    dropDeadFish()
-                                }
-                        } else if let selectedFish = selectedFish {
-                            Image(selectedFish)
-                                .resizable()
-                                .frame(width: 100 * fishSizeMultiplier, height: 100 * fishSizeMultiplier)
-                                .clipShape(Circle())
-                                .offset(y: 20 + fishAnimationOffset)
-                                .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true), value: fishAnimationOffset)
-                                .onAppear {
-                                    startFishAnimation()
-                                }
-                        }
-
-                        CircularProgressBar(
-                            progress: CGFloat(timeRemaining) / CGFloat(timerValue * 60),
-                            lineWidth: 16,
-                            color: .green
-                        )
-                        .frame(width: 350, height: 310)
-                        .zIndex(2)
-                    }
-
-                    Spacer()
-
-                    // Give Up Button
-                    Button(action: {
-                        showingGiveUpAlert = true
-                    }) {
-                        Text("Give up")
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.black.opacity(0.7))
+                            .frame(width: 150, height: 60)
+                        
+                        Text(viewModel.formatTime(viewModel.timeRemaining))
+                            .font(.custom("Supercell-Magic", size: 25))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .font(.custom("Supercell-Magic", size: 17))
+                    }
+                    .padding(.top, UIScreen.main.bounds.height * 0.1)
+                    
+                    Spacer().frame(height: 20)
+                    // Motivational message
+                    if !viewModel.currentMotivationalMessage.isEmpty {
+                        Text(viewModel.currentMotivationalMessage)
+                            .font(.appHeading(18))
+                            .foregroundColor(.white)
                             .padding()
-                            .background(Color.red)
+                            .background(Color.black.opacity(0.6))
                             .cornerRadius(10)
-                            .zIndex(4)
+                            .transition(.scale.combined(with: .opacity))
                     }
-                    .padding(.bottom, 30)
-                    .alert(isPresented: $showingGiveUpAlert) {
-                        Alert(
-                            title: Text("Are you sure?"),
-                            message: Text("Your fish will die if you exit."),
-                            primaryButton: .destructive(Text("Yes")) {
-                                hasGivenUp = true
-                                failTask()
-                            },
-                            secondaryButton: .cancel()
-                        )
+                    // Center Section with Fish Pot
+                    ZStack {
+                        // Progress Circle and Water
+                        ZStack {
+                            // Progress Circle
+                            Circle()
+                                .stroke(Color.gray.opacity(0.3), lineWidth: 20)
+                                .frame(width: 300, height: 300)
+
+                            Circle()
+                                .trim(from: 0, to: CGFloat(viewModel.timeRemaining) / CGFloat(viewModel.timerValue * 60))
+                                .stroke(Color.green, lineWidth: 20)
+                                .frame(width: 330, height: 330)
+                                .rotationEffect(.degrees(-90))
+
+                            // Water Wave Animation
+                            WaveView(progress: 0.5)
+                                .frame(width: 300, height: 300)
+                                .zIndex(1)
+
+                            // Fish with Dead Fish Animation
+                            if viewModel.isDeadFishVisible {
+                                Image("dead_fish")
+                                    .resizable()
+                                    .frame(width: 150, height: 150)
+                                    .clipShape(Circle())
+                                    .offset(viewModel.deadFishOffset)
+                                    .zIndex(2)
+                                    .onAppear { viewModel.dropDeadFish() }
+                            } else if let fish = selectedFish {
+                                ZStack {
+                                    if viewModel.isLottieAnimated(fish) {
+                                        // Show Lottie animation for Lottie-based fishes
+                                        LottieView(fileName: fish, loopMode: .loop, play: true)
+                                            .frame(width: 150, height: 150)
+                                            .clipShape(Circle())
+                                            .scaleEffect(viewModel.currentFishSize)
+                                            .zIndex(2)
+                                    } else {
+                                        // Show static image for non-Lottie fishes
+                                        Image(fish)
+                                            .resizable()
+                                            .frame(width: 150, height: 150)
+                                            .clipShape(Circle())
+                                            .scaleEffect(viewModel.currentFishSize)
+                                            .zIndex(2)
+                                    }
+                                }
+                                .offset(y: viewModel.fishAnimationOffset)
+                                .onAppear { viewModel.startFishAnimation() }
+                            }
+                        }
                     }
-                }
-                .padding(.top, 100)
-                .onAppear {
-                    if !showingResultScreen {
-                        timeRemaining = timerValue * 60
-                        startTimer()
+                    .frame(height: UIScreen.main.bounds.height * 0.6)
+                    
+                    // Add the goal display here
+                    if let tag = selectedTag {
+                            
+                            Text(tag)
+                                .font(.custom("Supercell-Magic", size: 16))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color.gray.opacity(0.3))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                                        )
+                                )
+                        
+                        .padding(.top, -20) // Adjust this value to position it properly
                     }
-                }
-                .onDisappear {
-                    timer?.invalidate()
-                }
-                .onChange(of: scenePhase) { newPhase in
-                    if newPhase == .background {
-                        backgroundTimestamp = formatTime(timeRemaining)
-                        timeInBackground = currentTimestamp()
-                        backgroundCount += 1
+                    
+                    // Bottom Section with Give Up Button
+                    VStack {
+                        Button(action: { viewModel.showingGiveUpAlert = true }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill(Color.red)
+                                    .frame(width: 200, height: 60)
+                                    .shadow(radius: 5)
+                                
+                                Text("Give up")
+                                    .foregroundColor(.white)
+                                    .font(.custom("Supercell-Magic", size: 20))
+                            }
+                        }
                     }
+                    .frame(height: UIScreen.main.bounds.height * 0.2)
                 }
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .navigationDestination(isPresented: $showingResultScreen) {
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { value in
+                        createRipple(at: value.location)
+                    }
+            )
+            .navigationBarBackButtonHidden(true)
+            .alert(isPresented: $viewModel.showingGiveUpAlert) {
+                Alert(
+                    title: Text("Are you sure?"),
+                    message: Text("Your fish will die if you exit."),
+                    primaryButton: .destructive(Text("Yes")) {
+                        viewModel.hasGivenUp = true
+                        viewModel.triggerFishDropAndTransition()
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
+            .navigationDestination(isPresented: $viewModel.showingResultScreen) {
                 ResultScreen(
                     studyTime: Double(taskCompletionManager.totalTimeSpent["Study"] ?? 0),
                     workTime: Double(taskCompletionManager.totalTimeSpent["Work"] ?? 0),
                     meditateTime: Double(taskCompletionManager.totalTimeSpent["Meditate"] ?? 0),
                     exerciseTime: Double(taskCompletionManager.totalTimeSpent["Exercise"] ?? 0),
-                    remainingTime: calculateRemainingTime(),
-                    isTaskCompleted: !hasGivenUp,
+                    remainingTime: viewModel.timeRemaining,
+                    isTaskCompleted: !viewModel.hasGivenUp,
                     userPoints: $userPoints,
-                    selectedFish: $selectedFish,
+                    selectedFish: $selectedFish, selectedTag: $selectedTag,
                     taskCompletionManager: taskCompletionManager,
-                    backgroundCount: backgroundCount,
-                    timerValue: timerValue
+                    backgroundCount: viewModel.backgroundCount,
+                    timerValue: viewModel.timerValue
                 )
             }
-            .navigationBarBackButtonHidden(true)
+            .onAppear { viewModel.startTimer() }
+            .onDisappear { viewModel.stopTimer() }
+            // ✅ If the app tries to close, show the Give-Up popup instantly
+            .onChange(of: scenePhase) { _, newPhase in
+                if newPhase == .background {
+                    preventAppClosure()
+                }
+            }//            .onChange(of: scenePhase) { oldPase, newPhase in
+//                if newPhase == .background {
+//                    viewModel.handleBackgroundState()
+//                }
+//            }
         }
     }
+    
+    // ✅ Prevent app from closing immediately
+    private func preventAppClosure() {
+        viewModel.showingGiveUpAlert = true  // Show popup immediately
 
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if timeRemaining > 0 {
-                timeRemaining -= 1
-                progress = CGFloat(timeRemaining) / CGFloat(timerValue * 60)
-                waveLevel = Double(timeRemaining) / Double(timerValue * 60)
-            } else {
-                timer?.invalidate()
-                completeTask()
-            }
+        // ✅ Prevent app suspension temporarily
+        backgroundTask = UIApplication.shared.beginBackgroundTask {
+            // If the system decides to suspend the app, assume user gave up
+            viewModel.hasGivenUp = true
+            viewModel.triggerFishDropAndTransition()
         }
     }
-
-    private func completeTask() {
-        taskCompletionManager.addCompletedTask(
-            name: selectedTag ?? "Unnamed Task",
-            duration: timerValue,
-            hasGivenUp: false
-        )
-        onTaskComplete() // Trigger success callback
-        navigateToResultScreen()
-    }
-
-    private func failTask() {
-        timer?.invalidate() // Stop the timer immediately
-        timer = nil // Clear timer reference
-
-        // Reduce streak & possibly re-lock the last unlocked fish
-        taskCompletionManager.addCompletedTask(
-            name: selectedTag ?? "Unnamed Task",
-            duration: timerValue,
-            hasGivenUp: true
-        )
-
-        onTaskFail() // Trigger failure callback
+    
+    private func createRipple(at location: CGPoint) {
+        // Only create new ripple if we're not too close to existing ones
+        let minimumDistance: CGFloat = 50
+        guard !ripples.contains(where: {
+            hypot(location.x - $0.location.x, location.y - $0.location.y) < minimumDistance
+        }) else { return }
         
-        syncPoints()// Sync user points after task failure
-       
-
-        // Trigger fish drop animation & transition to result screen
-        triggerFishDropAndTransition()
-    }
-
-
-
-    private func syncPoints() {
-        userPoints = taskCompletionManager.userPoints
-    }
-
-    private func startFishAnimation() {
-        withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: true)) {
-            fishAnimationOffset = -25
+        let ripple = RipplePoint(location: location)
+        ripples.append(ripple)
+        
+        // Remove ripple after animation completes
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
+            ripples.removeAll { $0.id == ripple.id }
         }
-    }
-
-    private func dropDeadFish() {
-        withAnimation(Animation.easeIn(duration: 3)) {
-            deadFishOffset = CGSize(width: 0, height: 150) // Drop fish to the bottom of the pot
-        }
-    }
-
-    private func triggerFishDropAndTransition() {
-        isDeadFishVisible = true
-        dropDeadFish()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            navigateToResultScreen()
-        }
-    }
-
-    private func navigateToResultScreen() {
-        showingResultScreen = true
-    }
-
-    private func calculateRemainingTime() -> Int {
-        return max(timeRemaining, 0)
-    }
-
-    private func formatTime(_ totalSeconds: Int) -> String {
-        let minutes = totalSeconds / 60
-        let seconds = totalSeconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-
-    private func currentTimestamp() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm:ss a"
-        return formatter.string(from: Date())
     }
 }
