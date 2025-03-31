@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Template: 20_BasicBlack (11.2)</string>
+	<string>M13.1-7037.0.101-2</string>
+	<string>G-r1310-13B122</string>
+	<string>G-r1320-13C157</string>
+	<string>G-r1310-13B122</string>
+	<string>G-r1320-13C158</string>
+	<string>G-r1320-13C159</string>
+	<string>G-r1320-13C160</string>
+	<string>G-r1320-13C165</string>
+	<string>M13.2-7038.0.87-4</string>
+	<string>G-r1320-13C165</string>
+	<string>G-r1400-14A167</string>
+	<string>G-r1400-14A169</string>
+	<string>G-r1410-14B91</string>
+	<string>M14.1-7040.0.73-4</string>
+	<string>M14.2-7041.0.109-4</string>
+	<string>T14.2 (7370.0.111)</string>
+	<string>G-r1420-14C119</string>
+	<string>G-r1420-14D74</string>
+	<string>G-r1420-14D75</string>
+</array>
+</plist>

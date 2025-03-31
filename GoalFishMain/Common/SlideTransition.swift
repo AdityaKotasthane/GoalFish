@@ -1,3 +1,11 @@
+//
+//  SlideTransition.swift
+//  GoalFishMain
+//
+//  Created by Arjun Pratap Choudhary on 13/02/25.
+//
+
+
 import SwiftUI
 
 struct SlideTransition: ViewModifier {

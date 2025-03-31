@@ -5,6 +5,7 @@ enum Sound: String, CaseIterable {
     // Fish and Water Related
     case waterSplash = "watersplash"
     case bubbles = "bubbles"
+    case waterDrop = "waterDrop"
     
     // UI Interactions
     case buttonTap = "ripple"

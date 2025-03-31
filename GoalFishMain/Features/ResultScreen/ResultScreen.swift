@@ -9,103 +9,149 @@ struct ResultScreen: View {
     let isTaskCompleted: Bool
     @Binding var userPoints: Int
     @Binding var selectedFish: String?
+    @Binding var selectedTag: String?
+    
     @ObservedObject var taskCompletionManager: TaskCompletionManager
     let backgroundCount: Int
     let timerValue: Int
 
-    @AppStorage("selectedBackground") private var selectedBackground: String = "background1"
+    @AppStorage("selectedBackground") private var selectedBackground: String = "background5"
     @Environment(\.dismiss) private var dismiss
     @State private var pointsSynced = false
     @State private var showConfetti = false // 🎉 For celebration animation
-
+    @State private var showSparkles = false
+    @State private var showFishAnimation = false
+    
     var body: some View {
-        ZStack {
-            // **Background**
-            Image(selectedBackground)
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-                .overlay(Color.black.opacity(0.05)) // Dark overlay for visibility
+           ZStack {
+               // Background
+               Image(selectedBackground)
+                   .resizable()
+                   .scaledToFill()
+                   .edgesIgnoringSafeArea(.all)
+                   .overlay(Color.black.opacity(0.05))
 
-            VStack(spacing: 20) {
-                // **Result Title**
-                Text(isTaskCompleted ? "🎉 Task Completed!" : "❌ Task Failed!")
-                    .font(.custom("Supercell-Magic", size: 30))
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(isTaskCompleted ? Color.green.opacity(0.8) : Color.red.opacity(0.8))
-                            .shadow(radius: 10)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.white.opacity(0.5), lineWidth: 2)
-                    )
-                    .shadow(color: .black.opacity(0.1), radius: 5, x: 2, y: 2)
+               VStack(spacing: 20) {
+                   // Task Status Title
+                   Text(isTaskCompleted ? "🎉 Task Completed!" : "❌ Task Failed!")
+                       .font(.custom("Supercell-Magic", size: 20))
+                       .foregroundColor(.white)
+                       .padding()
+                       .background(
+                           RoundedRectangle(cornerRadius: 15)
+                               .fill(isTaskCompleted ? Color.green.opacity(0.8) : Color.red.opacity(0.8))
+                               .shadow(radius: 10)
+                       )
+                       .overlay(
+                           RoundedRectangle(cornerRadius: 15)
+                               .stroke(Color.white.opacity(0.5), lineWidth: 2)
+                       )
+                       .shadow(color: .black.opacity(0.1), radius: 5, x: 2, y: 2)
 
-                // **Medal / Failure Icon**
-                Image(isTaskCompleted ? "medal" : "failed_icon") // Replace with actual asset names
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .shadow(radius: 5)
-                    .animation(.easeInOut(duration: 0.5), value: isTaskCompleted)
+                   // Fish Success/Fail Animation
+                   LottieView(
+                       fileName: isTaskCompleted ? "fishSuccess" : "fishFail",
+                       loopMode: .loop,  // Set to loop mode
+                       play: true
+                   )
+                   .frame(width: 200, height: 200)
+                   .scaleEffect(1.4)
 
-                // **Points Update**
-                Text(isTaskCompleted ? "+20 Points 🎉" : "-4 Points ")
-                    .font(.custom("Supercell-Magic", size: 22))
-                    .foregroundColor(isTaskCompleted ? .green : .red)
-                    .padding(.vertical, 5)
-                    .shadow(color: .black.opacity(0.1), radius: 2)
-
-                // **Stats Box**
-                statsBox
-
-                Spacer()
-
-                // **Return Home Button**
-                Button(action: {
-                    dismiss()
-                }) {
-                    Text("Return to Home")
-                        .font(.custom("Supercell-Magic", size: 22))
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color.blue.opacity(0.9), Color.blue.opacity(0.7)]),
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
-                        )
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
-                }
-                .padding(.horizontal, 40)
-                .padding(.bottom, 30)
-            }
-            .padding(.top, 30)
-        }
-        .navigationBarBackButtonHidden(true)
-        .onAppear {
-            syncUserPoints()
-            if isTaskCompleted {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    showConfetti = true
-                }
-            }
-        }
-    }
+                   // Points Update
+                   Text(isTaskCompleted ? "CONGRATS! You've earned +20 🐚 " : "OOPS! You've lost -4 🐚 ")
+                       .font(.custom("Supercell-Magic", size: 16))
+                       .foregroundColor(isTaskCompleted ? .white : .white)
+                       .padding()
+                       .multilineTextAlignment(.center)
+                       .background(
+                           RoundedRectangle(cornerRadius: 15)
+                               .fill(isTaskCompleted ? Color.green.opacity(0.8) : Color.red.opacity(0.8))
+                               .shadow(radius: 10)
+                       )
+                       .overlay(
+                           RoundedRectangle(cornerRadius: 15)
+                               .stroke(Color.white.opacity(0.5), lineWidth: 2)
+                       )
+                       .shadow(color: .black.opacity(0.1), radius: 5, x: 2, y: 2)
+                       
+                   
+                   // Stats Box
+                   statsBox
+                   
+                   Spacer()
+                   
+                   // Return Home Button
+                   Button(action: {
+                       dismiss()
+                   }) {
+                       Text("Return to Home")
+                           .font(.custom("Supercell-Magic", size: 22))
+                           .foregroundColor(.white)
+                           .padding()
+                           .frame(maxWidth: .infinity)
+                           .background(
+                               LinearGradient(
+                                   gradient: Gradient(colors: [Color.blue.opacity(0.9), Color.blue.opacity(0.7)]),
+                                   startPoint: .top,
+                                   endPoint: .bottom
+                               )
+                           )
+                           .cornerRadius(15)
+                           .shadow(radius: 5)
+                   }
+                   .padding(.horizontal, 40)
+                   .padding(.bottom, 30)
+               }
+               .padding(.top, 30)
+               
+               // Victory Sparkles Animation
+               if isTaskCompleted && showSparkles {
+                   LottieView(fileName: "confetti", play: true)
+                       .frame(maxWidth: .infinity, maxHeight: .infinity)
+                       .transition(.opacity)
+//                       .scaleEffect(1.8)
+                       .zIndex(5)
+                   LottieView(fileName: "confetti2", play: true)
+                       .frame(maxWidth: .infinity, maxHeight: .infinity)
+                       .scaleEffect(1.2)
+                       .edgesIgnoringSafeArea(.all)
+                       .transition(.opacity)
+                       .zIndex(5)
+               }
+           }
+           .navigationBarBackButtonHidden(true)
+           .onAppear {
+               syncUserPoints()
+               if isTaskCompleted {
+                   // Play achievement sound
+                           SoundManager.shared.playSound(.achievement)
+                   
+                   // Show sparkles animation with a slight delay
+                   withAnimation(.easeIn(duration: 2)) {
+                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                           showSparkles = true
+                           
+                           // Hide sparkles after animation completes
+                           DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                               withAnimation {
+                                   showSparkles = false
+                               }
+                           }
+                       }
+                   }
+                                
+               }
+           }
+       }
 
     // **Stats Box**
     private var statsBox: some View {
         VStack(spacing: 12) {
             statRow(title: "⏳ Time Set", value: formatTime(timerValue * 60))
             statRow(title: "⏰ Time Remaining", value: formatTime(remainingTime))
-            statRow(title: "📲 Times Sent to Background", value: "\(backgroundCount)")
-            statRow(title: "🏆 Total Points", value: "\(userPoints)")
+            statRow(title: "📲 Times You Got Distracted", value: "\(backgroundCount)")
+            statRow(title: "🐚 Total Shells", value: "\(userPoints)")
+            statRow(title: "🎯 Goal Completed", value: "\(selectedTag ?? "None")")
         }
         .padding()
         .background(
@@ -131,13 +177,13 @@ struct ResultScreen: View {
     private func statRow(title: String, value: String) -> some View {
         HStack {
             Text(title)
-                .font(.custom("Supercell-Magic", size: 18))
+                .font(.custom("Supercell-Magic", size: 14))
                 .foregroundColor(.white)
 
             Spacer()
 
             Text(value)
-                .font(.custom("Supercell-Magic", size: 18))
+                .font(.custom("Supercell-Magic", size: 14))
                 .foregroundColor(.black)
                 .shadow(color: .black.opacity(0.3), radius: 2)
         }

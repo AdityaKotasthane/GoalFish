@@ -15,28 +15,34 @@ struct OnboardingView: View {
     
     let pages = [
         OnboardingPage(
-            title: "A Student's Journey with ADHD",
-            subtitle: "From Chaos to Calm",
-            description: "Hi there! I’m Arjun, and like you, I’ve faced the chaos of ADHD—time blindness, task overwhelm, you name it! But one day, while watching fish swim peacefully in an aquarium, I found something magical… their gentle movements helped me focus.",
-            animationName: "adhd-thoughts"
-        ),
-        OnboardingPage(
-            title: "The Science Behind FocusFish",
-            subtitle: "Nature’s Focus Tool",
-            description: "Did you know? Scientists found that watching fish reduces stress by 12% and gamification boosts focus by 20%. That’s why I created FocusFish—to bring this calming power to your everyday life. Let’s turn focus into fun!",
+            title: "Welcome to GoalFish!",
+            subtitle: "Turn Focus into Fun",
+            description: "Swipe through to see how GoalFish makes productivity engaging.",
             animationName: "fish-family"
         ),
         OnboardingPage(
-            title: "Your Path to Focused Success",
-            subtitle: "Small Steps, Big Progress",
-            description: "Here’s how it works:\n🐠 Pick your fish buddy\n⏱️ Set small time blocks that suit you\n🌟 Complete tasks to keep your fish happy and thriving!\n⚠️ But beware! If you give up, your fish dies, and you lose precious shells. Stay focused to keep your underwater world alive!",
+            title: "Your Journey Begins",
+            subtitle: "Pick Your Fish Companion",
+            description: "Choose a fish to accompany you on your focus journey. The more tasks you complete, the more fishes you can get!",
+            animationName: "adhd-thoughts"
+        ),
+        OnboardingPage(
+            title: "Stay on Track",
+            subtitle: "Complete Tasks, Earn Rewards",
+            description: "Set time blocks for work and keep your fish thriving by staying focused. Earn shells and unlock new underwater friends!",
+            animationName: "task-rewards"
+        ),
+        OnboardingPage(
+            title: "Your Focus Oasis",
+            subtitle: "Build a World That Grows with You",
+            description: "Every completed task helps your fish and environment flourish. Create a personalized, calming underwater sanctuary!",
             animationName: "steps-guide"
         ),
         OnboardingPage(
-            title:  "Build Your Calming Underwater World",
-            subtitle: "Your Underwater Sanctuary",
-            description: "Every completed task helps your fish thrive and earns you shells. Use them to unlock new fish buddies or expand your underwater world. Together, we’ll create a calming space that works with your ADHD brain—not against it!",
-            animationName: "rewards-shells"
+            title: "Let’s Get Started!",
+            subtitle: "Begin Your First Session",
+            description: "Start your journey now! Set a goal, dive in, and watch your progress come to life.",
+            animationName: "focus-oasis"
         )
     ]
     
@@ -85,10 +91,10 @@ struct OnboardingView: View {
                         }
                     }) {
                         Text(currentPage < pages.count - 1 ? "Next" : "Get Started")
-                            .font(.appTitle(18))
+                            .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.white)
-                            .padding(.horizontal, 30)
-                            .padding(.vertical, 15)
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 10)
                             .background(
                                 RoundedRectangle(cornerRadius: 25)
                                     .fill(
@@ -125,28 +131,30 @@ struct OnboardingPageView: View {
     private var animationScale: CGFloat {
         switch page.animationName {
         case "adhd-thoughts":
-            return 0.13
+            return 1.5
         case"fish-family":
-            return 0.4
-        case "steps-guide", "rewards-shells":
-            return 1.0
+            return 1.5
+        case "steps-guide":
+            return 1.5
+        case "task-rewards":
+            return 2.0
         default:
-            return 1.0
+            return 1.3
         }
     }
     
     var body: some View {
-        VStack(spacing: 25) { // Increased spacing
+        VStack(spacing: 20) { // Increased spacing
             // Animation
-            LottieView(animationName: page.animationName, loopMode: .loop, play: true)
+            LottieView(fileName: page.animationName, loopMode: .loop, play: true)
                 .frame(height: 200)
                 .scaleEffect(animationScale)
             
-            Spacer().frame(height: 50) // Reduced spacing
+            Spacer().frame(height: 80) // Reduced spacing
             
             // Title with gradient
             Text(page.title)
-                .font(.appTitle(32)) // Increased size
+                .font(.system(size: 28, weight: .heavy))
                 .foregroundStyle(
                     LinearGradient(
                         colors: [.white, .white.opacity(0.8)],
@@ -156,18 +164,20 @@ struct OnboardingPageView: View {
                 )
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
+                .bold()
             
             // Subtitle with glow
             Text(page.subtitle)
-                .font(.appHeading(20))
+                .font(.system(size: 20, weight: .semibold))
                 .foregroundColor(.blue)
                 .shadow(color: .blue.opacity(0.5), radius: 10, x: 0, y: 0)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
             // Description with better formatting
+            // Description with better formatting
             Text(page.description)
-                .font(.appBody(16))
+                .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white.opacity(0.9))
                 .multilineTextAlignment(.center)
                 .lineSpacing(8) // Added line spacing
@@ -178,6 +188,8 @@ struct OnboardingPageView: View {
                         .fill(Color.black.opacity(0.3))
                         .shadow(color: .white.opacity(0.1), radius: 5, x: 0, y: 0)
                 )
+                .fixedSize(horizontal: false, vertical: true) // Allow vertical expansion
+                .frame(maxWidth: 300) // Set a maximum width for better readability
         }
         .padding(.vertical, 30)
     }

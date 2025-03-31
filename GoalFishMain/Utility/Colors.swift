@@ -1,10 +1,11 @@
 //
-//  for.swift
+//  Colors.swift
 //  GoalFishMain
 //
 //  Created by Arjun Pratap Choudhary on 08/02/25.
 //
-
+import SwiftUI
+import Foundation
 
 // Color Extension for Hex Support
 extension Color {
@@ -36,14 +37,32 @@ extension Color {
 
 // Colors struct for centralized management
 struct Colors {
-    static let color_ffffff = Color(hex: "#ffffff")  // White
-    static let color_000000 = Color(hex: "#000000")  // Black
-    static let color_282828 = Color(hex: "#282828")  // Dark Gray
-    static let theme_bg_color = Color(hex: "#101010") // Theme Background
-    // Add more colors as needed
+    // Brand Colors
+    static let primary = Color(hex: "#4A90E2")
+    static let secondary = Color(hex: "#50E3C2")
+    
+    // Background Colors
+    static let background = Color(hex: "#F5F8FA")
+    static let cardBackground = Color(hex: "#FFFFFF")
+    
+    // Text Colors
+    static let textPrimary = Color(hex: "#2C3E50")
+    static let textSecondary = Color(hex: "#7F8C8D")
+    
+    // Fish Theme Colors
+    static let deepOcean = Color(hex: "#1B4965") // Deep blue for depth and stability
+    static let aquaBreeze = Color(hex: "#5FA8D3") // Light blue for refreshing water tones
+    static let coralReef = Color(hex: "#FF9A8C") // Soft coral color
+    static let seaFoam = Color(hex: "#62B6AB") // Minty green-blue for ocean freshness
+    static let oceanMist = Color(hex: "#CAE9FF") // Light, airy blue for surface water
+    static let tropicalWaters = Color(hex: "#00B4D8") // Vibrant turquoise for tropical waters
+    
+    // Status Colors
+    static let success = Color(hex: "#2ECC71")
+    static let warning = Color(hex: "#F1C40F")
+    static let error = Color(hex: "#E74C3C")
+    
+    // Shell Counter Colors
+    static let shellGold = Color(hex: "#FFD700")
 }
 
-// Usage in Views
-Text("Hello World")
-    .foregroundColor(Colors.color_ffffff)
-    .background(Colors.theme_bg_color)

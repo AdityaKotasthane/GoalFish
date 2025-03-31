@@ -21,7 +21,7 @@
 		1FC1109D2B90544600B7C792 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1109C2B90544600B7C792 /* NewsView.swift */; };
 		1FC1109F2B90545400B7C792 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1109E2B90545400B7C792 /* SettingsView.swift */; };
 		1FC118432B8EE2B7005C69AF /* GoalFishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC118422B8EE2B7005C69AF /* GoalFishApp.swift */; };
-		1FC118452B8EE2B7005C69AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC118442B8EE2B7005C69AF /* ContentView.swift */; };
+		1FC118452B8EE2B7005C69AF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC118442B8EE2B7005C69AF /* HomeView.swift */; };
 		1FC118472B8EE2B8005C69AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC118462B8EE2B8005C69AF /* Assets.xcassets */; };
 		1FC1184A2B8EE2B8005C69AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC118492B8EE2B8005C69AF /* Preview Assets.xcassets */; };
 		1FC118542B8EE2B8005C69AF /* GoalFishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC118532B8EE2B8005C69AF /* GoalFishTests.swift */; };
@@ -29,6 +29,22 @@
 		1FC118602B8EE2B8005C69AF /* GoalFishUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1185F2B8EE2B8005C69AF /* GoalFishUITestsLaunchTests.swift */; };
 		1FC119292B8EFE97005C69AF /* FishSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC119282B8EFE97005C69AF /* FishSelectionView.swift */; };
 		1FC1192B2B8F08D7005C69AF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1192A2B8F08D7005C69AF /* SplashScreen.swift */; };
+		9603BD902D56996B007B72B3 /* watersplash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD8F2D56996B007B72B3 /* watersplash.json */; };
+		9603BD922D56B06E007B72B3 /* splashwater.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD912D56B06E007B72B3 /* splashwater.json */; };
+		9603BD932D56B06E007B72B3 /* splashwater.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD912D56B06E007B72B3 /* splashwater.json */; };
+		9603BD942D56B06E007B72B3 /* splashwater.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD912D56B06E007B72B3 /* splashwater.json */; };
+		9603BD962D56B4E6007B72B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603BD952D56B4E6007B72B3 /* Colors.swift */; };
+		9603BD9A2D57A2A9007B72B3 /* watersplash2.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD992D57A2A9007B72B3 /* watersplash2.json */; };
+		9603BD9C2D595A77007B72B3 /* sparkles.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD9B2D595A77007B72B3 /* sparkles.json */; };
+		9603BD9E2D595E7C007B72B3 /* fishSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD9D2D595E7C007B72B3 /* fishSuccess.json */; };
+		9603BDA02D595F9F007B72B3 /* fishFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BD9F2D595F9F007B72B3 /* fishFail.json */; };
+		9603BDA22D5BCEB2007B72B3 /* RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603BDA12D5BCEB2007B72B3 /* RippleEffect.swift */; };
+		9603BDA72D5BD415007B72B3 /* waterDrop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9603BDA62D5BD415007B72B3 /* waterDrop.mp3 */; };
+		9603BDA92D5BD4D2007B72B3 /* ripple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9603BDA82D5BD4D2007B72B3 /* ripple.mp3 */; };
+		9603BDAD2D5BDCE8007B72B3 /* AquaticTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603BDAC2D5BDCE8007B72B3 /* AquaticTabBar.swift */; };
+		9603BDAF2D5BDD78007B72B3 /* bubbles.json in Resources */ = {isa = PBXBuildFile; fileRef = 9603BDAE2D5BDD78007B72B3 /* bubbles.json */; };
+		962B71212D6978DA0030ABF4 /* confetti2.json in Resources */ = {isa = PBXBuildFile; fileRef = 962B71202D6978DA0030ABF4 /* confetti2.json */; };
+		962B71222D6978DA0030ABF4 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 962B711F2D6978DA0030ABF4 /* confetti.json */; };
 		96399DA92CC8051400F4CDC8 /* StartButton.json in Resources */ = {isa = PBXBuildFile; fileRef = 96399DA82CC8051400F4CDC8 /* StartButton.json */; };
 		96399DAB2CC806CD00F4CDC8 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96399DAA2CC806CD00F4CDC8 /* LottieView.swift */; };
 		96399DAD2CC80DE300F4CDC8 /* Dokdo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96399DAC2CC80DE300F4CDC8 /* Dokdo.ttf */; };
@@ -37,10 +53,37 @@
 		96399DEC2CC81E6D00F4CDC8 /* Supercell-Magic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96399DEB2CC81E6D00F4CDC8 /* Supercell-Magic.ttf */; };
 		96399DEE2CCB29DD00F4CDC8 /* fisherman.json in Resources */ = {isa = PBXBuildFile; fileRef = 96399DED2CCB29DD00F4CDC8 /* fisherman.json */; };
 		96399DF02CCB2AD700F4CDC8 /* fishes.json in Resources */ = {isa = PBXBuildFile; fileRef = 96399DEF2CCB2AD700F4CDC8 /* fishes.json */; };
+		96C3528F2D763A340053743A /* focus-oasis.json in Resources */ = {isa = PBXBuildFile; fileRef = 96C3528E2D763A340053743A /* focus-oasis.json */; };
+		96C352912D764D710053743A /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C352902D764D710053743A /* Fonts.swift */; };
+		96C352962D764E6B0053743A /* SoundManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C352932D764E6B0053743A /* SoundManager1.swift */; };
+		96C352972D764E6B0053743A /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C352922D764E6B0053743A /* HapticManager.swift */; };
+		96C3529A2D764F0C0053743A /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C352992D764F0C0053743A /* Sound.swift */; };
+		96C3529C2D764FDB0053743A /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3529B2D764FDB0053743A /* ShopView.swift */; };
+		96C645C32D8986A50011B35D /* watersplash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96C645C22D8986A50011B35D /* watersplash.mp3 */; };
+		96C645C52D89896B0011B35D /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C645C42D89896B0011B35D /* Bubble.swift */; };
+		96C645C72D8989780011B35D /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C645C62D8989780011B35D /* BubbleView.swift */; };
+		96C645C92D8989820011B35D /* BubbleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C645C82D8989820011B35D /* BubbleManager.swift */; };
+		96C645CB2D8C20FB0011B35D /* achievement.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96C645CA2D8C20FB0011B35D /* achievement.wav */; };
+		96C8ADE92D72495700857C40 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C8ADE72D72495700857C40 /* OnboardingView.swift */; };
+		96C8ADEF2D72502700857C40 /* adhd-thoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ADEA2D72502700857C40 /* adhd-thoughts.json */; };
+		96C8ADF02D72502700857C40 /* fish-family.json in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ADEC2D72502700857C40 /* fish-family.json */; };
+		96C8ADF12D72502700857C40 /* fish-calm.json in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ADEB2D72502700857C40 /* fish-calm.json */; };
+		96C8ADF22D72502700857C40 /* task-rewards.json in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ADED2D72502700857C40 /* task-rewards.json */; };
+		96C8ADF32D72502700857C40 /* steps-guide.json in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ADEE2D72502700857C40 /* steps-guide.json */; };
 		96CEA3002CC59FC100241977 /* CircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CEA2FF2CC59FC100241977 /* CircularSlider.swift */; };
 		96CEA3022CC5C36500241977 /* AnimationMain.json in Resources */ = {isa = PBXBuildFile; fileRef = 96CEA3012CC5C36500241977 /* AnimationMain.json */; };
+		96D104692D5DF44700EDA2B4 /* FishShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D104682D5DF44700EDA2B4 /* FishShopView.swift */; };
+		96D1046B2D5DF5A900EDA2B4 /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D1046A2D5DF5A900EDA2B4 /* SlideTransition.swift */; };
+		96D1046D2D5E85E400EDA2B4 /* turtle2.json in Resources */ = {isa = PBXBuildFile; fileRef = 96D1046C2D5E85E400EDA2B4 /* turtle2.json */; };
+		96D1046F2D5E8FD900EDA2B4 /* octopus.json in Resources */ = {isa = PBXBuildFile; fileRef = 96D1046E2D5E8FD900EDA2B4 /* octopus.json */; };
+		96D104712D5E9C2F00EDA2B4 /* turtle3.json in Resources */ = {isa = PBXBuildFile; fileRef = 96D104702D5E9C2F00EDA2B4 /* turtle3.json */; };
+		96D104732D5E9D9D00EDA2B4 /* SplashWaterFill.json in Resources */ = {isa = PBXBuildFile; fileRef = 96D104722D5E9D9D00EDA2B4 /* SplashWaterFill.json */; };
 		96FD68922D5011760084057E /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD68912D5011760084057E /* UserModels.swift */; };
 		96FD68942D5011C50084057E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD68932D5011C50084057E /* HomeViewModel.swift */; };
+		96FD68962D5146C70084057E /* TagSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD68952D5146C70084057E /* TagSelectionView.swift */; };
+		96FD689A2D5156900084057E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD68992D5156900084057E /* TimerViewModel.swift */; };
+		96FD689E2D5271A60084057E /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD689D2D5271A60084057E /* Wave.swift */; };
+		96FD68A02D5271BC0084057E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD689F2D5271BC0084057E /* WaveView.swift */; };
 		96FE98742CC56CC60060E28E /* splashscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 96FE98732CC55CB50060E28E /* splashscreen.json */; };
 		96FE98772CC590EC0060E28E /* CircularSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 96FE98762CC590EC0060E28E /* CircularSlider */; };
 		DC3E0FD42BB2280400411550 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC110962B90541200B7C792 /* StoreView.swift */; };
@@ -83,7 +126,7 @@
 		1FC1109E2B90545400B7C792 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1FC1183F2B8EE2B7005C69AF /* GoalFish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalFish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC118422B8EE2B7005C69AF /* GoalFishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFishApp.swift; sourceTree = "<group>"; };
-		1FC118442B8EE2B7005C69AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1FC118442B8EE2B7005C69AF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1FC118462B8EE2B8005C69AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC118492B8EE2B8005C69AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FC1184F2B8EE2B8005C69AF /* GoalFishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoalFishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +136,21 @@
 		1FC1185F2B8EE2B8005C69AF /* GoalFishUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFishUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1FC119282B8EFE97005C69AF /* FishSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishSelectionView.swift; sourceTree = "<group>"; };
 		1FC1192A2B8F08D7005C69AF /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		9603BD8F2D56996B007B72B3 /* watersplash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = watersplash.json; sourceTree = "<group>"; };
+		9603BD912D56B06E007B72B3 /* splashwater.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splashwater.json; sourceTree = "<group>"; };
+		9603BD952D56B4E6007B72B3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9603BD992D57A2A9007B72B3 /* watersplash2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = watersplash2.json; sourceTree = "<group>"; };
+		9603BD9B2D595A77007B72B3 /* sparkles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sparkles.json; sourceTree = "<group>"; };
+		9603BD9D2D595E7C007B72B3 /* fishSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fishSuccess.json; sourceTree = "<group>"; };
+		9603BD9F2D595F9F007B72B3 /* fishFail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fishFail.json; sourceTree = "<group>"; };
+		9603BDA12D5BCEB2007B72B3 /* RippleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
+		9603BDA42D5BD1E1007B72B3 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		9603BDA62D5BD415007B72B3 /* waterDrop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterDrop.mp3; sourceTree = "<group>"; };
+		9603BDA82D5BD4D2007B72B3 /* ripple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ripple.mp3; sourceTree = "<group>"; };
+		9603BDAC2D5BDCE8007B72B3 /* AquaticTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaticTabBar.swift; sourceTree = "<group>"; };
+		9603BDAE2D5BDD78007B72B3 /* bubbles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bubbles.json; sourceTree = "<group>"; };
+		962B711F2D6978DA0030ABF4 /* confetti.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		962B71202D6978DA0030ABF4 /* confetti2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = confetti2.json; sourceTree = "<group>"; };
 		96399DA82CC8051400F4CDC8 /* StartButton.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StartButton.json; sourceTree = "<group>"; };
 		96399DAA2CC806CD00F4CDC8 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		96399DAC2CC80DE300F4CDC8 /* Dokdo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dokdo.ttf; sourceTree = "<group>"; };
@@ -101,11 +159,38 @@
 		96399DEB2CC81E6D00F4CDC8 /* Supercell-Magic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supercell-Magic.ttf"; sourceTree = "<group>"; };
 		96399DED2CCB29DD00F4CDC8 /* fisherman.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fisherman.json; sourceTree = "<group>"; };
 		96399DEF2CCB2AD700F4CDC8 /* fishes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fishes.json; sourceTree = "<group>"; };
+		96C3528E2D763A340053743A /* focus-oasis.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "focus-oasis.json"; sourceTree = "<group>"; };
+		96C352902D764D710053743A /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		96C352922D764E6B0053743A /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		96C352932D764E6B0053743A /* SoundManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager1.swift; sourceTree = "<group>"; };
+		96C352992D764F0C0053743A /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		96C3529B2D764FDB0053743A /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		96C645C22D8986A50011B35D /* watersplash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = watersplash.mp3; sourceTree = "<group>"; };
+		96C645C42D89896B0011B35D /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		96C645C62D8989780011B35D /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		96C645C82D8989820011B35D /* BubbleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleManager.swift; sourceTree = "<group>"; };
+		96C645CA2D8C20FB0011B35D /* achievement.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = achievement.wav; sourceTree = "<group>"; };
+		96C8ADE72D72495700857C40 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		96C8ADEA2D72502700857C40 /* adhd-thoughts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "adhd-thoughts.json"; sourceTree = "<group>"; };
+		96C8ADEB2D72502700857C40 /* fish-calm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "fish-calm.json"; sourceTree = "<group>"; };
+		96C8ADEC2D72502700857C40 /* fish-family.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "fish-family.json"; sourceTree = "<group>"; };
+		96C8ADED2D72502700857C40 /* task-rewards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "task-rewards.json"; sourceTree = "<group>"; };
+		96C8ADEE2D72502700857C40 /* steps-guide.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "steps-guide.json"; sourceTree = "<group>"; };
 		96CEA2FF2CC59FC100241977 /* CircularSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSlider.swift; sourceTree = "<group>"; };
 		96CEA3012CC5C36500241977 /* AnimationMain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimationMain.json; sourceTree = "<group>"; };
 		96CEA3032CC5D66C00241977 /* ShellCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCounterView.swift; sourceTree = "<group>"; };
+		96D104682D5DF44700EDA2B4 /* FishShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishShopView.swift; sourceTree = "<group>"; };
+		96D1046A2D5DF5A900EDA2B4 /* SlideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransition.swift; sourceTree = "<group>"; };
+		96D1046C2D5E85E400EDA2B4 /* turtle2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = turtle2.json; sourceTree = "<group>"; };
+		96D1046E2D5E8FD900EDA2B4 /* octopus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = octopus.json; sourceTree = "<group>"; };
+		96D104702D5E9C2F00EDA2B4 /* turtle3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = turtle3.json; sourceTree = "<group>"; };
+		96D104722D5E9D9D00EDA2B4 /* SplashWaterFill.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SplashWaterFill.json; sourceTree = "<group>"; };
 		96FD68912D5011760084057E /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		96FD68932D5011C50084057E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		96FD68952D5146C70084057E /* TagSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectionView.swift; sourceTree = "<group>"; };
+		96FD68992D5156900084057E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		96FD689D2D5271A60084057E /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		96FD689F2D5271BC0084057E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		96FE98732CC55CB50060E28E /* splashscreen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splashscreen.json; sourceTree = "<group>"; };
 		DCC251B22BC911290096006A /*  RadialGaugeChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " RadialGaugeChart.swift"; sourceTree = "<group>"; };
 		DCC6F7762BC41E03008D1BD2 /* AnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedView.swift; sourceTree = "<group>"; };
@@ -197,9 +282,40 @@
 			path = GoalFishUITests;
 			sourceTree = "<group>";
 		};
+		9603BDA32D5BD1D8007B72B3 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				96C645C22D8986A50011B35D /* watersplash.mp3 */,
+				9603BDA82D5BD4D2007B72B3 /* ripple.mp3 */,
+				96C645CA2D8C20FB0011B35D /* achievement.wav */,
+				9603BDA62D5BD415007B72B3 /* waterDrop.mp3 */,
+				9603BDA42D5BD1E1007B72B3 /* SoundManager.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		96C352952D764E6B0053743A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				96C352922D764E6B0053743A /* HapticManager.swift */,
+				96C352932D764E6B0053743A /* SoundManager1.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		96C8ADE82D72495700857C40 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				96C8ADE72D72495700857C40 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		96FD687B2D4FDC980084057E /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				96FD68802D4FDD400084057E /* HomeScreen */,
+				96C8ADE82D72495700857C40 /* Onboarding */,
 				96FD688D2D4FE0960084057E /* ProSubscription */,
 				96FD688C2D4FE08F0084057E /* News */,
 				96FD688B2D4FE06C0084057E /* Achievements */,
@@ -209,7 +325,6 @@
 				96FD68832D4FDD890084057E /* ResultScreen */,
 				96FD68822D4FDD7F0084057E /* TimerScreen */,
 				96FD68812D4FDD580084057E /* SplashScreen */,
-				96FD68802D4FDD400084057E /* HomeScreen */,
 				96FD68872D4FDED30084057E /* Store */,
 			);
 			path = Features;
@@ -218,13 +333,18 @@
 		96FD687C2D4FDCD00084057E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				96C352952D764E6B0053743A /* Managers */,
+				96D1046A2D5DF5A900EDA2B4 /* SlideTransition.swift */,
+				9603BDA32D5BD1D8007B72B3 /* Audio */,
 				96FD68862D4FDE1B0084057E /* Models */,
 				DCC6F7762BC41E03008D1BD2 /* AnimatedView.swift */,
 				96399DAA2CC806CD00F4CDC8 /* LottieView.swift */,
 				08BDF1C62CA9C35E00D5CD25 /* TaskCompletionManager.swift */,
 				DCC251B22BC911290096006A /*  RadialGaugeChart.swift */,
 				0F2CE9D42B9038F60095DF52 /* ProgressBar.swift */,
+				96FD689D2D5271A60084057E /* Wave.swift */,
 				0FFC76612B970325008197FB /* BarChart.swift */,
+				96FD689F2D5271BC0084057E /* WaveView.swift */,
 				96CEA2FF2CC59FC100241977 /* CircularSlider.swift */,
 				0F2CE9DA2B919BF10095DF52 /* CircularProgressBar.swift */,
 			);
@@ -234,6 +354,8 @@
 		96FD687D2D4FDCD90084057E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				96C352992D764F0C0053743A /* Sound.swift */,
+				9603BD952D56B4E6007B72B3 /* Colors.swift */,
 				96FD687F2D4FDCF60084057E /* Fonts */,
 				96FD687E2D4FDCEE0084057E /* Animations */,
 				1FC118462B8EE2B8005C69AF /* Assets.xcassets */,
@@ -244,6 +366,25 @@
 		96FD687E2D4FDCEE0084057E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				96C8ADEA2D72502700857C40 /* adhd-thoughts.json */,
+				96C8ADEB2D72502700857C40 /* fish-calm.json */,
+				96C8ADEC2D72502700857C40 /* fish-family.json */,
+				96C8ADED2D72502700857C40 /* task-rewards.json */,
+				96C8ADEE2D72502700857C40 /* steps-guide.json */,
+				962B711F2D6978DA0030ABF4 /* confetti.json */,
+				962B71202D6978DA0030ABF4 /* confetti2.json */,
+				96D104722D5E9D9D00EDA2B4 /* SplashWaterFill.json */,
+				96D104702D5E9C2F00EDA2B4 /* turtle3.json */,
+				96D1046E2D5E8FD900EDA2B4 /* octopus.json */,
+				96D1046C2D5E85E400EDA2B4 /* turtle2.json */,
+				9603BDAE2D5BDD78007B72B3 /* bubbles.json */,
+				9603BD9F2D595F9F007B72B3 /* fishFail.json */,
+				9603BD9D2D595E7C007B72B3 /* fishSuccess.json */,
+				9603BD9B2D595A77007B72B3 /* sparkles.json */,
+				96C3528E2D763A340053743A /* focus-oasis.json */,
+				9603BD992D57A2A9007B72B3 /* watersplash2.json */,
+				9603BD912D56B06E007B72B3 /* splashwater.json */,
+				9603BD8F2D56996B007B72B3 /* watersplash.json */,
 				96399DEF2CCB2AD700F4CDC8 /* fishes.json */,
 				96399DED2CCB29DD00F4CDC8 /* fisherman.json */,
 				96399DA82CC8051400F4CDC8 /* StartButton.json */,
@@ -256,6 +397,7 @@
 		96FD687F2D4FDCF60084057E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				96C352902D764D710053743A /* Fonts.swift */,
 				96399DAC2CC80DE300F4CDC8 /* Dokdo.ttf */,
 				96399DEB2CC81E6D00F4CDC8 /* Supercell-Magic.ttf */,
 				96399DB12CC8156100F4CDC8 /* Magic.ttf */,
@@ -283,7 +425,8 @@
 		96FD68822D4FDD7F0084057E /* TimerScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0F2CE9CE2B8EED070095DF52 /* TimerScreen.swift */,
+				96FD68982D5156790084057E /* ViewModel */,
+				96FD68972D5156690084057E /* View */,
 			);
 			path = TimerScreen;
 			sourceTree = "<group>";
@@ -299,7 +442,9 @@
 		96FD68842D4FDDFF0084057E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1FC118442B8EE2B7005C69AF /* ContentView.swift */,
+				9603BDAC2D5BDCE8007B72B3 /* AquaticTabBar.swift */,
+				96FD68952D5146C70084057E /* TagSelectionView.swift */,
+				1FC118442B8EE2B7005C69AF /* HomeView.swift */,
 				1FC1108A2B90439C00B7C792 /* SideMenu.swift */,
 				96CEA3032CC5D66C00241977 /* ShellCounterView.swift */,
 				1FC119282B8EFE97005C69AF /* FishSelectionView.swift */,
@@ -326,6 +471,8 @@
 		96FD68872D4FDED30084057E /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				96C3529B2D764FDB0053743A /* ShopView.swift */,
+				96D104682D5DF44700EDA2B4 /* FishShopView.swift */,
 				1FC110962B90541200B7C792 /* StoreView.swift */,
 			);
 			path = Store;
@@ -384,6 +531,26 @@
 			children = (
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		96FD68972D5156690084057E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				96C645C82D8989820011B35D /* BubbleManager.swift */,
+				96C645C62D8989780011B35D /* BubbleView.swift */,
+				96C645C42D89896B0011B35D /* Bubble.swift */,
+				9603BDA12D5BCEB2007B72B3 /* RippleEffect.swift */,
+				0F2CE9CE2B8EED070095DF52 /* TimerScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96FD68982D5156790084057E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96FD68992D5156900084057E /* TimerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,15 +667,38 @@
 			files = (
 				96FE98742CC56CC60060E28E /* splashscreen.json in Resources */,
 				96399DEC2CC81E6D00F4CDC8 /* Supercell-Magic.ttf in Resources */,
+				9603BDA72D5BD415007B72B3 /* waterDrop.mp3 in Resources */,
+				96D1046F2D5E8FD900EDA2B4 /* octopus.json in Resources */,
+				96C3528F2D763A340053743A /* focus-oasis.json in Resources */,
 				1FC1184A2B8EE2B8005C69AF /* Preview Assets.xcassets in Resources */,
+				962B71212D6978DA0030ABF4 /* confetti2.json in Resources */,
+				962B71222D6978DA0030ABF4 /* confetti.json in Resources */,
 				96399DAD2CC80DE300F4CDC8 /* Dokdo.ttf in Resources */,
+				9603BD942D56B06E007B72B3 /* splashwater.json in Resources */,
 				96CEA3022CC5C36500241977 /* AnimationMain.json in Resources */,
 				96399DA92CC8051400F4CDC8 /* StartButton.json in Resources */,
+				96D104732D5E9D9D00EDA2B4 /* SplashWaterFill.json in Resources */,
 				96399DB22CC8156100F4CDC8 /* Magic.ttf in Resources */,
+				96C645CB2D8C20FB0011B35D /* achievement.wav in Resources */,
 				96399DEE2CCB29DD00F4CDC8 /* fisherman.json in Resources */,
+				96C645C32D8986A50011B35D /* watersplash.mp3 in Resources */,
+				9603BDAF2D5BDD78007B72B3 /* bubbles.json in Resources */,
+				96C8ADEF2D72502700857C40 /* adhd-thoughts.json in Resources */,
+				96C8ADF02D72502700857C40 /* fish-family.json in Resources */,
+				96C8ADF12D72502700857C40 /* fish-calm.json in Resources */,
+				96C8ADF22D72502700857C40 /* task-rewards.json in Resources */,
+				96C8ADF32D72502700857C40 /* steps-guide.json in Resources */,
+				9603BD9C2D595A77007B72B3 /* sparkles.json in Resources */,
 				96399DEA2CC81D2800F4CDC8 /* GoalFish-Info.plist in Resources */,
+				9603BD9E2D595E7C007B72B3 /* fishSuccess.json in Resources */,
+				9603BDA92D5BD4D2007B72B3 /* ripple.mp3 in Resources */,
+				96D1046D2D5E85E400EDA2B4 /* turtle2.json in Resources */,
+				96D104712D5E9C2F00EDA2B4 /* turtle3.json in Resources */,
 				1FC118472B8EE2B8005C69AF /* Assets.xcassets in Resources */,
+				9603BD902D56996B007B72B3 /* watersplash.json in Resources */,
 				96399DF02CCB2AD700F4CDC8 /* fishes.json in Resources */,
+				9603BD9A2D57A2A9007B72B3 /* watersplash2.json in Resources */,
+				9603BDA02D595F9F007B72B3 /* fishFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +706,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9603BD932D56B06E007B72B3 /* splashwater.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +714,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9603BD922D56B06E007B72B3 /* splashwater.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,28 +727,46 @@
 			files = (
 				1FC1192B2B8F08D7005C69AF /* SplashScreen.swift in Sources */,
 				1FC1109B2B90543800B7C792 /* AchievementsView.swift in Sources */,
+				9603BDAD2D5BDCE8007B72B3 /* AquaticTabBar.swift in Sources */,
 				1FC1109D2B90544600B7C792 /* NewsView.swift in Sources */,
 				96FD68942D5011C50084057E /* HomeViewModel.swift in Sources */,
-				1FC118452B8EE2B7005C69AF /* ContentView.swift in Sources */,
+				96D104692D5DF44700EDA2B4 /* FishShopView.swift in Sources */,
+				96FD689E2D5271A60084057E /* Wave.swift in Sources */,
+				1FC118452B8EE2B7005C69AF /* HomeView.swift in Sources */,
 				1FC119292B8EFE97005C69AF /* FishSelectionView.swift in Sources */,
 				96CEA3002CC59FC100241977 /* CircularSlider.swift in Sources */,
 				0F2CE9CF2B8EED070095DF52 /* TimerScreen.swift in Sources */,
+				96C645C52D89896B0011B35D /* Bubble.swift in Sources */,
+				9603BD962D56B4E6007B72B3 /* Colors.swift in Sources */,
 				1FC110992B90542A00B7C792 /* TagsView.swift in Sources */,
+				96C3529A2D764F0C0053743A /* Sound.swift in Sources */,
+				96C8ADE92D72495700857C40 /* OnboardingView.swift in Sources */,
 				0F2CE9D32B8F4D4D0095DF52 /* ResultScreen.swift in Sources */,
 				96399DAB2CC806CD00F4CDC8 /* LottieView.swift in Sources */,
+				96C352912D764D710053743A /* Fonts.swift in Sources */,
 				DCC6F7772BC41E03008D1BD2 /* AnimatedView.swift in Sources */,
 				1FC1109F2B90545400B7C792 /* SettingsView.swift in Sources */,
+				96C645C92D8989820011B35D /* BubbleManager.swift in Sources */,
+				96FD68A02D5271BC0084057E /* WaveView.swift in Sources */,
 				1FC118432B8EE2B7005C69AF /* GoalFishApp.swift in Sources */,
+				96FD68962D5146C70084057E /* TagSelectionView.swift in Sources */,
+				96C352962D764E6B0053743A /* SoundManager1.swift in Sources */,
+				96C352972D764E6B0053743A /* HapticManager.swift in Sources */,
 				0FFC76622B970325008197FB /* BarChart.swift in Sources */,
+				96FD689A2D5156900084057E /* TimerViewModel.swift in Sources */,
 				DC3E0FD42BB2280400411550 /* StoreView.swift in Sources */,
 				08BDF1C72CA9C35E00D5CD25 /* TaskCompletionManager.swift in Sources */,
 				DCC251B32BC911290096006A /*  RadialGaugeChart.swift in Sources */,
 				1FC1108B2B90439C00B7C792 /* SideMenu.swift in Sources */,
+				9603BDA22D5BCEB2007B72B3 /* RippleEffect.swift in Sources */,
 				0F2CE9DB2B919BF10095DF52 /* CircularProgressBar.swift in Sources */,
 				96FD68922D5011760084057E /* UserModels.swift in Sources */,
+				96D1046B2D5DF5A900EDA2B4 /* SlideTransition.swift in Sources */,
 				0F2CE9D52B9038F60095DF52 /* ProgressBar.swift in Sources */,
 				1FC110932B9053C900B7C792 /* FriendsView.swift in Sources */,
+				96C3529C2D764FDB0053743A /* ShopView.swift in Sources */,
 				1FC110952B9053FB00B7C792 /* ProSubscriptionView.swift in Sources */,
+				96C645C72D8989780011B35D /* BubbleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,22 +931,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoalFishMain/Preview Content\"";
-				DEVELOPMENT_TEAM = 2Z8B6ZHC8V;
+				DEVELOPMENT_TEAM = HX55T3BRQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GoalFish-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ArjunGoalFish;
+				MARKETING_VERSION = 1.10;
+				PRODUCT_BUNDLE_IDENTIFIER = arjun.goalfish.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -754,22 +964,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoalFishMain/Preview Content\"";
-				DEVELOPMENT_TEAM = 2Z8B6ZHC8V;
+				DEVELOPMENT_TEAM = HX55T3BRQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GoalFish-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ArjunGoalFish;
+				MARKETING_VERSION = 1.10;
+				PRODUCT_BUNDLE_IDENTIFIER = arjun.goalfish.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
